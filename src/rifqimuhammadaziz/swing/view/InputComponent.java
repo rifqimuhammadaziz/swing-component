@@ -4,9 +4,14 @@ import rifqimuhammadaziz.swing.entity.Department;
 import rifqimuhammadaziz.swing.entity.Student;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class InputComponent {
     private JTextField textField1;
@@ -21,6 +26,12 @@ public class InputComponent {
     private JComboBox<Department> comboBox2;
     private JSplitPane rootPanel;
     private JTable table1;
+    private JButton updateButton;
+    private JButton resetButton;
+    private JButton saveButton;
+
+    private Student selectedStudent;
+    private int selectedIndex;
 
     public InputComponent() {
         List<Department> departments = new ArrayList<>();
@@ -44,6 +55,96 @@ public class InputComponent {
         StudentTableModel studentTableModel = new StudentTableModel(students);
         table1.setModel(studentTableModel);
         table1.setAutoCreateRowSorter(true);
+
+        // SAVE BUTTON
+        saveButton.addActionListener(e -> {
+            Student student = new Student();
+            student.setId(String.valueOf(new Random().nextInt()));
+            student.setName(textField1.getText());
+            student.setMale(maleRadioButton.isSelected());
+            student.setProgrammingSkill(slider1.getValue());
+            student.setDepartment((Department) comboBox2.getSelectedItem());
+            if (musicCheckBox.isSelected()) {
+                student.getHobbies().add(musicCheckBox.getText());
+            } else if (readCheckBox.isSelected()) {
+                student.getHobbies().add(readCheckBox.getText());
+            } else if (sportCheckBox.isSelected()) {
+                student.getHobbies().add(sportCheckBox.getText());
+            }
+            students.add(student);
+            studentTableModel.fireTableDataChanged();
+            resetTextfield();
+        });
+
+        // RESET BUTTON
+        resetButton.addActionListener(e -> {
+            resetTextfield();
+        });
+
+        // UPDATE BUTTON
+        updateButton.addActionListener(e -> {
+            selectedStudent.setId(String.valueOf(new Random().nextInt()));
+            selectedStudent.setName(textField1.getText());
+            selectedStudent.setMale(maleRadioButton.isSelected());
+            selectedStudent.setProgrammingSkill(slider1.getValue());
+            selectedStudent.setDepartment((Department) comboBox2.getSelectedItem());
+            if (musicCheckBox.isSelected() && selectedStudent.getHobbies().stream().noneMatch(s -> s.equals(musicCheckBox.getText()))) {
+                selectedStudent.getHobbies().add(musicCheckBox.getText());
+            } else {
+                selectedStudent.getHobbies().remove(musicCheckBox.getText());
+            }
+
+            if (readCheckBox.isSelected() && selectedStudent.getHobbies().stream().noneMatch(s -> s.equals(readCheckBox.getText()))) {
+                selectedStudent.getHobbies().add(readCheckBox.getText());
+            } else {
+                selectedStudent.getHobbies().remove(readCheckBox.getText());
+            }
+
+            if (sportCheckBox.isSelected() && selectedStudent.getHobbies().stream().noneMatch(s -> s.equals(readCheckBox.getText()))) {
+                selectedStudent.getHobbies().add(sportCheckBox.getText());
+            } else {
+                selectedStudent.getHobbies().remove(sportCheckBox.getText());
+            }
+
+            students.set(selectedIndex, selectedStudent);
+            studentTableModel.fireTableDataChanged();
+            resetTextfield();
+        });
+
+        table1.getSelectionModel().addListSelectionListener(e -> {
+            if (!table1.getSelectionModel().isSelectionEmpty()) {
+                selectedIndex = table1.convertRowIndexToModel(table1.getSelectedRow());
+                selectedStudent = students.get(selectedIndex);
+                if (selectedStudent != null) {
+                    textField1.setText(selectedStudent.getName());
+                    if (selectedStudent.isMale()) {
+                        maleRadioButton.setSelected(true);
+                    } else {
+                        femaleRadioButton.setSelected(true);
+                    }
+                    readCheckBox.setSelected(selectedStudent.getHobbies().stream().anyMatch(s -> s.equals(readCheckBox.getText())));
+                    musicCheckBox.setSelected(selectedStudent.getHobbies().stream().anyMatch(s -> s.equals(musicCheckBox.getText())));
+                    sportCheckBox.setSelected(selectedStudent.getHobbies().stream().anyMatch(s -> s.equals(sportCheckBox.getText())));
+                    slider1.setValue(selectedStudent.getProgrammingSkill());
+                    comboBox2.setSelectedItem(selectedStudent.getDepartment());
+                    saveButton.setEnabled(false);
+                    updateButton.setEnabled(true);
+                }
+            }
+        });
+    }
+
+    private void resetTextfield() {
+        textField1.setText("");
+        textArea1.setText("");
+        readCheckBox.setSelected(false);
+        musicCheckBox.setSelected(false);
+        sportCheckBox.setSelected(false);
+        table1.clearSelection();
+        saveButton.setEnabled(true);
+        updateButton.setEnabled(false);
+        selectedStudent = null;
+        selectedIndex = -1;
     }
 
     public static void main(String[] args) {
@@ -52,12 +153,13 @@ public class InputComponent {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
+        frame.setSize(600, 500);
         frame.setVisible(true);
     }
 
     private static class StudentTableModel extends AbstractTableModel {
 
-        private final String[] COLUMNS = {"ID", "NAME", "GENDER", "PROG. SKILL"};
+        private final String[] COLUMNS = {"ID", "NAME", "GENDER", "PROG. SKILL", "DEPARTEMENT"};
         private List<Student> students;
 
         public StudentTableModel(List<Student> students) {
@@ -81,6 +183,7 @@ public class InputComponent {
                 case 1 -> students.get(rowIndex).getName();
                 case 2 -> students.get(rowIndex).isMale();
                 case 3 -> students.get(rowIndex).getProgrammingSkill();
+                case 4 -> students.get(rowIndex).getDepartment().getName();
                 default -> "-";
             };
         }
