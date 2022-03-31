@@ -1,169 +1,193 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="rifqimuhammadaziz.swing.view.InputComponent">
-  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="7" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+  <splitpane id="4fff1" binding="rootPanel">
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <orientation value="0"/>
+    </properties>
     <border type="none"/>
     <children>
-      <component id="6d689" class="javax.swing.JLabel">
+      <grid id="27dc6" layout-manager="GridLayoutManager" row-count="7" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Name"/>
-        </properties>
-      </component>
-      <component id="ddf2" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="200" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="68098" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Address"/>
-        </properties>
-      </component>
-      <component id="3bbc9" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="95fcf" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Gender"/>
-        </properties>
-      </component>
-      <grid id="a1937" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <splitpane position="left"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="30d7c" class="javax.swing.JRadioButton" binding="maleRadioButton" default-binding="true">
-            <constraints/>
+          <component id="6d689" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
-              <selected value="true"/>
-              <text value="Male"/>
+              <text value="Name"/>
             </properties>
           </component>
-          <component id="300e5" class="javax.swing.JRadioButton" binding="femaleRadioButton" default-binding="true">
-            <constraints/>
+          <component id="ddf2" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="200" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="68098" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties>
-              <text value="Female"/>
+              <text value="Address"/>
             </properties>
+          </component>
+          <component id="3bbc9" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="95fcf" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Gender"/>
+            </properties>
+          </component>
+          <grid id="a1937" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="30d7c" class="javax.swing.JRadioButton" binding="maleRadioButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <selected value="true"/>
+                  <text value="Male"/>
+                </properties>
+              </component>
+              <component id="300e5" class="javax.swing.JRadioButton" binding="femaleRadioButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Female"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="2513a" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Hobbies"/>
+            </properties>
+          </component>
+          <grid id="73b99" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="426cf" class="javax.swing.JCheckBox" binding="readCheckBox" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Read"/>
+                </properties>
+              </component>
+              <component id="6d1d4" class="javax.swing.JCheckBox" binding="musicCheckBox" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Music"/>
+                </properties>
+              </component>
+              <component id="67fbc" class="javax.swing.JCheckBox" binding="sportCheckBox" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Sport"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="a10b6" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Programming Skill"/>
+            </properties>
+          </component>
+          <component id="9e8cd" class="javax.swing.JSlider" binding="slider1" default-binding="true">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <majorTickSpacing value="5"/>
+              <maximum value="10"/>
+              <minorTickSpacing value="2"/>
+              <paintLabels value="true"/>
+              <paintTicks value="true"/>
+              <snapToTicks value="true"/>
+            </properties>
+          </component>
+          <component id="efbf9" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Major 1"/>
+            </properties>
+          </component>
+          <component id="17959" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="S1 Teknik Informatika"/>
+                <item value="S1 Desain Komunikasi Visual"/>
+                <item value="S1 Sistem Informasi"/>
+                <item value="S1 Teknik Elektro"/>
+                <item value="S1 Animasi"/>
+              </model>
+            </properties>
+          </component>
+          <component id="3da1e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Major 2"/>
+            </properties>
+          </component>
+          <component id="c023c" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
           </component>
         </children>
       </grid>
-      <component id="2513a" class="javax.swing.JLabel">
+      <scrollpane id="94fb9">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Hobbies"/>
-        </properties>
-      </component>
-      <grid id="73b99" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <splitpane position="right"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="426cf" class="javax.swing.JCheckBox" binding="readCheckBox" default-binding="true">
+          <component id="e955f" class="javax.swing.JTable" binding="table1" default-binding="true">
             <constraints/>
-            <properties>
-              <text value="Read"/>
-            </properties>
-          </component>
-          <component id="6d1d4" class="javax.swing.JCheckBox" binding="musicCheckBox" default-binding="true">
-            <constraints/>
-            <properties>
-              <text value="Music"/>
-            </properties>
-          </component>
-          <component id="67fbc" class="javax.swing.JCheckBox" binding="sportCheckBox" default-binding="true">
-            <constraints/>
-            <properties>
-              <text value="Sport"/>
-            </properties>
+            <properties/>
           </component>
         </children>
-      </grid>
-      <component id="a10b6" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Programming Skill"/>
-        </properties>
-      </component>
-      <component id="9e8cd" class="javax.swing.JSlider" binding="slider1" default-binding="true">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <majorTickSpacing value="5"/>
-          <maximum value="10"/>
-          <minorTickSpacing value="2"/>
-          <paintLabels value="true"/>
-          <paintTicks value="true"/>
-          <snapToTicks value="true"/>
-        </properties>
-      </component>
-      <component id="efbf9" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Major 1"/>
-        </properties>
-      </component>
-      <component id="17959" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value="S1 Teknik Informatika"/>
-            <item value="S1 Desain Komunikasi Visual"/>
-            <item value="S1 Sistem Informasi"/>
-            <item value="S1 Teknik Elektro"/>
-            <item value="S1 Animasi"/>
-          </model>
-        </properties>
-      </component>
-      <component id="3da1e" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Major 2"/>
-        </properties>
-      </component>
-      <component id="c023c" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
-        <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-      </component>
+      </scrollpane>
     </children>
-  </grid>
+  </splitpane>
   <buttonGroups>
     <group name="groupGender">
       <member id="30d7c"/>
